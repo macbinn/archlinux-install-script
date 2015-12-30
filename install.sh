@@ -44,11 +44,18 @@ mkinitcpio -p linux
 
 bootctl install
 
-sed -i "s/root=.* rw/root=\/dev\/sda2/g" /boot/loader/entries/arch.conf
+cat <<EOF > /boot/loader/entries/arch.conf
+title          Arch Linux
+linux          /vmlinuz-linux
+initrd         /initramfs-linux.img
+options        root=/dev/sda2 rw
+EOF
 
-echo "timtout 3" > /boot/loader/loader.conf
-echo "default arch" >> /boot/loader/loader.conf
+cat <<EOF > /boot/loader/loader.conf
+timeout 3
+default arch
+EOF
 
 systemctl enable dhcpcd@enp0s3.service
 
-passwd
+echo "root:toor" | chpasswd
