@@ -25,7 +25,7 @@ mount /dev/sda1 /mnt/boot
 mv /etc/pacman.d/mirrorlist{,.bak}
 grep "163" /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
 
-pacstrap -i /mnt base base-devel
+pacstrap /mnt base base-devel
 
 genfstab -U /mnt > /mnt/etc/fstab
 
