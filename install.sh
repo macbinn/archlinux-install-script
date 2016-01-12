@@ -62,6 +62,8 @@ systemctl enable dhcpcd@enp0s8.service
 
 pacman -S openssh vim git --noconfirm
 
+systemctl enable sshd
+
 echo "root:toor" | chpasswd
 
 useradd -m -s /bin/bash macbinn
