@@ -58,4 +58,11 @@ EOF
 
 systemctl enable dhcpcd@enp0s3.service
 
+systemctl enable dhcpcd@enp0s8.service
+
+pacman -S openssh vim git --noconfirm
+
 echo "root:toor" | chpasswd
+
+useradd -m -s /bin/bash macbinn
+echo "macbinn:nnibcam" | chpasswd
